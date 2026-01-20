@@ -86,7 +86,7 @@ if run_agent:
         st.write(output)
 
         # Save to MongoDB
-        collection.insert_many([{"LLM_response": clean_text(output), "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")}])
+        collection.insert_one({"LLM_response": clean_text(output), "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
         st.info("Saved response to MongoDB")
 
 # -------------------------------

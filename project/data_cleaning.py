@@ -64,13 +64,13 @@ def clean_text(text: str) -> str:
     text = emoji_to_text(text)
 
     # ✅ FIXED: Remove HTML tags
-    text = re.sub(r"<.*?@#%&>", "", text)
+    text = re.sub(r"<.*?@>", "", text)
 
     # Remove URLs
     text = re.sub(r"http\S+|www\S+", "", text)
 
     # ✅ FIXED: Remove literal .*?
-    text = re.sub(r"\.\*\?\@\#\&", "", text)
+    text = re.sub(r"\.\*\?\@", "", text)
 
     # Remove special characters (keep letters & numbers)
     text = re.sub(r"[^a-zA-Z0-9\s]", " ", text)
